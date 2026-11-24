@@ -1,137 +1,749 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#111020">
-<title>The Unlock — A little mystery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081a35">
+<title>The Art of You</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-:root{--bg:#100f20;--panel:#1b1930;--panel2:#24203b;--ink:#f8f2ff;--muted:#b8afca;--pink:#f4a8d8;--lilac:#b9a8ff;--gold:#f4d69a;--line:rgba(255,255,255,.13);--good:#9de4c4;--bad:#ff9caa}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 15% 10%,#40315f 0,transparent 36%),radial-gradient(ellipse at 85% 30%,#392746 0,transparent 34%),linear-gradient(145deg,#100f20,#171326 55%,#101322);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(1px 1px at 10% 20%,white 99%,transparent),radial-gradient(1px 1px at 80% 12%,white 99%,transparent),radial-gradient(2px 2px at 62% 72%,#f4d69a 99%,transparent),radial-gradient(1px 1px at 30% 82%,white 99%,transparent),radial-gradient(1px 1px at 92% 60%,white 99%,transparent);background-size:260px 220px}
-button,input{font:inherit}button{cursor:pointer}.wrap{width:min(900px,92vw);margin:auto;padding:26px 0 54px;position:relative}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}.brand{font-size:12px;letter-spacing:.24em;color:#d9c9ee;text-transform:uppercase}.progress-label{font-size:12px;color:var(--muted)}.track{height:5px;background:#ffffff16;border-radius:99px;overflow:hidden;margin:0 0 30px}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--lilac),var(--gold));transition:width .5s ease}
-main{min-height:570px;display:grid;place-items:center}.screen{width:100%;animation:appear .45s ease both}.hidden{display:none!important}@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;line-height:1.12;margin:0}h1{font-size:clamp(42px,8vw,76px);letter-spacing:-.04em}h2{font-size:clamp(30px,5vw,46px)}h3{font-size:23px}.eyebrow{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:15px}.lead{font-size:16px;line-height:1.8;color:var(--muted);max-width:570px;margin:18px auto 0}.center{text-align:center}.hero{padding:54px 20px 65px;position:relative}.orb{width:140px;height:140px;margin:0 auto 30px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff4,transparent 25%),linear-gradient(135deg,#f3b5db,#9b86ec 55%,#544a88);box-shadow:0 0 75px #c18de655, inset 0 0 30px #fff5;display:grid;place-items:center;animation:float 4s ease-in-out infinite}.orb span{font-size:54px;filter:drop-shadow(0 6px 10px #45304c)}@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}}.btn{border:0;border-radius:999px;padding:14px 24px;background:linear-gradient(100deg,#f2b2d9,#bba9ff);color:#21172c;font-weight:700;box-shadow:0 10px 28px #bd9be633;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.07)}.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}.btn.secondary{background:#ffffff0d;border:1px solid var(--line);color:var(--ink);box-shadow:none}.btn.small{padding:10px 17px;font-size:13px}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}.panel{background:linear-gradient(145deg,#ffffff0c,#ffffff05);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,5vw,40px);box-shadow:0 25px 70px #0004;backdrop-filter:blur(14px)}.narrow{max-width:690px;margin:auto}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:28px}.choice{min-height:175px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(150deg,#ffffff10,#ffffff04);color:var(--ink);padding:20px 12px;transition:.25s}.choice:hover{transform:translateY(-5px);border-color:#f4a8d8aa;background:#f4a8d812}.choice .symbol{font-size:39px;display:block;margin-bottom:14px}.choice strong{display:block;font-family:'Playfair Display',serif;font-size:19px}.choice small{display:block;color:var(--muted);margin-top:7px}.feedback{min-height:28px;color:var(--gold);font-size:14px;text-align:center;margin-top:17px;line-height:1.5}.riddle{font-size:18px;line-height:1.8;color:#e9e1f3;margin:22px auto;max-width:580px}.answer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:520px;margin:25px auto}.answer{border:1px solid var(--line);background:#ffffff09;color:var(--ink);padding:15px;border-radius:14px;text-align:left}.answer:hover{border-color:var(--lilac);background:#b9a8ff12}.answer.correct{border-color:var(--good);background:#9de4c41a}.answer.wrong{border-color:var(--bad);background:#ff9caa14}.inputrow{display:flex;gap:10px;max-width:440px;margin:22px auto}.inputrow input{min-width:0;flex:1;background:#0d0c18aa;color:var(--ink);border:1px solid var(--line);border-radius:13px;padding:14px 16px;outline:none}.inputrow input:focus{border-color:var(--pink)}.tiles{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:24px 0}.tile{width:58px;height:58px;border-radius:16px;border:1px solid #ffffff24;background:#ffffff0b;display:grid;place-items:center;font-size:25px}.tile.active{background:#b9a8ff33;border-color:var(--lilac);box-shadow:0 0 24px #b9a8ff44}.door-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}.door{border:1px solid var(--line);background:linear-gradient(180deg,#ffffff12,#ffffff04);border-radius:18px;padding:24px 10px;color:var(--ink);min-height:175px}.door .symbol{font-size:42px;display:block;margin-bottom:14px}.door:hover{transform:translateY(-4px);border-color:var(--gold)}.note{background:linear-gradient(145deg,#fff8e8,#f4d9e8);color:#34263c;border-radius:20px;padding:clamp(24px,5vw,42px);text-align:left;box-shadow:0 20px 60px #0005}.note h2{color:#4a3150}.note p{font-size:16px;line-height:1.9;color:#55445b;white-space:pre-line}.note .signature{font-family:'Playfair Display',serif;font-size:24px;color:#754c79;margin-top:22px}.tiny{font-size:12px;color:var(--muted);line-height:1.6}.stepdots{display:flex;justify-content:center;gap:7px;margin:0 0 22px}.stepdots i{width:6px;height:6px;border-radius:50%;background:#ffffff35}.stepdots i.on{background:var(--pink);box-shadow:0 0 10px var(--pink)}footer{text-align:center;color:#9b91ac;font-size:11px;margin-top:25px;letter-spacing:.08em}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#28233d;border:1px solid var(--line);padding:12px 18px;border-radius:99px;color:var(--ink);opacity:0;transition:.3s;pointer-events:none;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:620px){.choices,.door-grid{grid-template-columns:1fr}.choice,.door{min-height:125px}.choice .symbol,.door .symbol{font-size:32px;margin-bottom:7px}.answer-grid{grid-template-columns:1fr}.top{margin-bottom:18px}main{min-height:570px}.hero{padding:35px 5px}.orb{width:115px;height:115px}.orb span{font-size:44px}.inputrow{flex-direction:column}.inputrow .btn{width:100%}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+:root {
+  --navy:#081a35;
+  --blue:#315d8b;
+  --silver:#c4d2df;
+  --white:#fbfdff;
+  --ink:#18304b;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  min-height:100vh;
+  font-family:'DM Sans',sans-serif;
+  color:var(--white);
+  background:
+    radial-gradient(ellipse at 15% 15%,#183b62 0%,transparent 40%),
+    radial-gradient(ellipse at 85% 85%,#152d50 0%,transparent 45%),
+    linear-gradient(145deg,#061329,#0b1e3a 55%,#07152c);
+  overflow-x:hidden;
+}
+button { font:inherit; cursor:pointer; }
+button:focus-visible { outline:3px solid #c4d2df; outline-offset:5px; }
+
+#stars {
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+.star {
+  position:absolute;
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  background:white;
+  opacity:.45;
+  animation:twinkle 4s ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+  to { opacity:1; transform:scale(1.8); }
+}
+.page {
+  min-height:100vh;
+  padding:40px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:1;
+}
+.screen {
+  width:min(740px,100%);
+  text-align:center;
+  animation:fadeIn .8s ease both;
+}
+.hidden { display:none !important; }
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(18px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.overline {
+  color:var(--silver);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  margin-bottom:23px;
+}
+h1,h2,h3,.serif {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+}
+.hero-title {
+  font-size:clamp(65px,12vw,112px);
+  line-height:.85;
+  margin:0 auto 28px;
+  letter-spacing:-3px;
+}
+.hero-title span {
+  display:block;
+  font-style:italic;
+  color:#b9d0e6;
+}
+.hero-copy {
+  max-width:480px;
+  margin:0 auto 35px;
+  color:#c0ccda;
+  line-height:2;
+  font-size:14px;
+}
+.seal {
+  width:115px;
+  height:115px;
+  margin:0 auto 34px;
+  border:1px solid #c4d2df88;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#dbe8f3;
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;
+  position:relative;
+  box-shadow:0 0 50px #9cb9d622,inset 0 0 35px #9cb9d611;
+}
+.seal:before,.seal:after {
+  content:"";
+  position:absolute;
+  border:1px solid #c4d2df44;
+  border-radius:50%;
+  inset:7px;
+}
+.seal:after { inset:-7px; }
+
+.primary {
+  border:1px solid #e6eff8;
+  border-radius:4px;
+  background:#f6faff;
+  color:#102b4b;
+  padding:16px 29px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+  box-shadow:0 10px 35px #00000022;
+}
+.primary:hover {
+  transform:translateY(-4px);
+  background:white;
+  box-shadow:0 15px 40px #9ebbd933;
+}
+.hero-foot {
+  margin-top:28px;
+  font-size:9px;
+  letter-spacing:3px;
+  color:#8297ae;
+}
+.ornament {
+  color:#b6cce1;
+  letter-spacing:12px;
+  font-size:15px;
+  margin:24px 0;
+}
+
+.progress-wrap {
+  width:min(350px,85%);
+  height:3px;
+  background:#ffffff20;
+  margin:0 auto 18px;
+}
+.progress-bar {
+  height:100%;
+  width:0;
+  background:#dceafa;
+  transition:width .5s ease;
+}
+.progress-label {
+  color:#aabbd0;
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:28px;
+}
+.card-shell {
+  width:min(570px,100%);
+  margin:0 auto;
+  perspective:1200px;
+}
+.card {
+  min-height:440px;
+  padding:clamp(35px,7vw,65px) clamp(24px,7vw,58px);
+  background:linear-gradient(145deg,#ffffff,#edf4fa);
+  color:var(--ink);
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 30px 100px #00000055;
+  animation:cardEnter .7s cubic-bezier(.2,.8,.2,1) both;
+}
+.card:before {
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid #b6c9db;
+  pointer-events:none;
+}
+.card:after {
+  content:"";
+  position:absolute;
+  top:-70px;
+  right:-70px;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:#dce9f4;
+  opacity:.65;
+}
+@keyframes cardEnter {
+  from { opacity:0; transform:translateY(24px) rotateX(6deg) scale(.97); }
+  to { opacity:1; transform:translateY(0) rotateX(0) scale(1); }
+}
+.card-number {
+  font-family:'Caveat',cursive;
+  font-size:20px;
+  color:#6885a2;
+  margin-bottom:22px;
+  position:relative;
+  z-index:1;
+}
+.card-icon {
+  font-size:30px;
+  color:#6c8cac;
+  margin-bottom:17px;
+  position:relative;
+  z-index:1;
+}
+.card-label {
+  font-size:9px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-weight:700;
+  color:#7290ad;
+  margin-bottom:17px;
+  position:relative;
+  z-index:1;
+}
+.card h2 {
+  font-size:clamp(38px,7vw,57px);
+  line-height:1;
+  color:#142d4b;
+  margin:0 auto 24px;
+  max-width:430px;
+  position:relative;
+  z-index:1;
+}
+.card p {
+  font-size:14px;
+  line-height:2;
+  color:#61758b;
+  max-width:415px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.card .script {
+  font-family:'Caveat',cursive;
+  font-size:27px;
+  color:#3c6893;
+  margin-top:25px;
+  position:relative;
+  z-index:1;
+}
+
+/* REVEAL BUTTON - NO ARROW */
+.reveal-button {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:min(310px,100%);
+  min-height:57px;
+  margin:32px auto 0;
+  padding:16px 20px;
+  border:1px solid #a9c6df;
+  border-radius:5px;
+  background:linear-gradient(135deg,#183c62,#315d85);
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.7px;
+  text-transform:uppercase;
+  box-shadow:0 8px 25px #183c6250;
+  position:relative;
+  z-index:3;
+  transition:transform .25s,box-shadow .25s,background .25s;
+  animation:revealPulse 2.5s ease-in-out infinite;
+}
+.reveal-button::before {
+  content:"✧";
+  font-size:19px;
+  color:#dceafa;
+}
+.reveal-button:hover {
+  transform:translateY(-4px);
+  background:linear-gradient(135deg,#244e77,#4779a5);
+  box-shadow:0 13px 35px #183c6270;
+}
+.reveal-button:active { transform:scale(.97); }
+@keyframes revealPulse {
+  0%,100% { box-shadow:0 8px 25px #183c6250; }
+  50% { box-shadow:0 8px 35px #6c91b899; }
+}
+.reveal-button.revealed {
+  background:linear-gradient(135deg,#eaf2fa,#d4e3f1);
+  border-color:#9cb6ce;
+  color:#183c62;
+  animation:none;
+  cursor:default;
+}
+.reveal-button.revealed::before {
+  content:"✓";
+  color:#315d85;
+}
+.hidden-thought {
+  max-width:390px;
+  margin:23px auto 0;
+  padding:20px 17px;
+  border-top:1px solid #b8c9d9;
+  color:#294f75;
+  font-family:'Cormorant Garamond',serif;
+  font-size:25px;
+  font-style:italic;
+  line-height:1.5;
+  animation:fadeIn .6s ease both;
+  position:relative;
+  z-index:1;
+}
+
+/* PROMINENT CONTINUE BUTTON */
+.navigation {
+  margin:28px auto 0;
+  width:min(360px,100%);
+}
+.next {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:57px;
+  padding:16px 18px;
+  border:1px solid #d5e4f2;
+  border-radius:5px;
+  background:linear-gradient(135deg,#f9fcff,#dce9f5);
+  color:#102b4b;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  box-shadow:0 8px 25px #00000025;
+  transition:all .25s ease;
+}
+.next:hover {
+  transform:translateY(-3px);
+  background:#fff;
+  box-shadow:0 12px 35px #9ebbd955;
+}
+.next:active { transform:scale(.98); }
+.small-note {
+  color:#8ea3bb;
+  font-size:10px;
+  letter-spacing:1px;
+  margin-top:14px;
+}
+
+.final-paper {
+  width:min(660px,100%);
+  margin:0 auto;
+  padding:clamp(32px,7vw,65px);
+  background:#f8fbfe;
+  color:#19324e;
+  text-align:left;
+  box-shadow:0 30px 100px #00000066;
+  position:relative;
+  animation:cardEnter .8s ease both;
+}
+.final-paper:before {
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid #bdccda;
+  pointer-events:none;
+}
+.paper-heading {
+  text-align:center;
+  color:#7790a9;
+  letter-spacing:4px;
+  font-size:9px;
+  font-weight:700;
+  margin-bottom:30px;
+  position:relative;
+}
+.final-paper h2 {
+  text-align:center;
+  font-size:clamp(42px,8vw,65px);
+  line-height:1;
+  margin:0 0 28px;
+  color:#102b4b;
+}
+.final-paper h2 em { color:#6588aa; }
+.letter-text {
+  color:#5b7086;
+  font-size:14px;
+  line-height:2.1;
+  white-space:pre-line;
+  position:relative;
+}
+.letter-signature {
+  color:#365e83;
+  font-family:'Caveat',cursive;
+  font-size:27px;
+  margin-top:30px;
+  position:relative;
+}
+.closing {
+  margin-top:28px;
+  text-align:center;
+  color:#c7d8e8;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:25px;
+}
+.final-actions { margin-top:30px; }
+
+.float {
+  position:fixed;
+  bottom:-30px;
+  pointer-events:none;
+  z-index:5;
+  color:#dceafa;
+  animation:floatUp 5s ease-out forwards;
+}
+@keyframes floatUp {
+  0% { opacity:0; transform:translateY(0) rotate(0); }
+  15% { opacity:.8; }
+  100% { opacity:0; transform:translateY(-105vh) rotate(45deg); }
+}
+@media(max-width:480px) {
+  .hero-title { letter-spacing:-2px; }
+  .card { min-height:460px; }
+  .card p,.letter-text { font-size:13px; }
+  .reveal-button,.next { min-height:59px; font-size:10px; }
+}
 </style>
 </head>
+
 <body>
-<div class="wrap">
-  <div class="top"><div class="brand">✦ THE UNLOCK</div><div class="progress-label" id="progressLabel">A little mystery awaits</div></div>
-  <div class="track"><div class="fill" id="progressFill"></div></div>
-  <main>
-    <section class="screen center" id="start">
-      <div class="hero">
-        <div class="orb"><span>✧</span></div>
-        <div class="eyebrow">A private little adventure</div>
-        <h1>Something is<br><span style="color:var(--pink);font-style:italic">waiting for you.</span></h1>
-        <p class="lead">There are clues to find, choices to make and a few things hidden along the way. Take your time. Nothing here is quite what it seems.</p>
-        <div class="actions"><button class="btn" onclick="begin()">I'm curious — let's go <span aria-hidden="true">→</span></button></div>
-        <p class="tiny" style="margin-top:20px">Best enjoyed with sound on, but absolutely not required.</p>
-      </div>
-    </section>
+<div id="stars"></div>
 
-    <section class="screen hidden" id="boxes">
-      <div class="panel narrow center">
-        <div class="stepdots"><i class="on"></i><i></i><i></i><i></i></div>
-        <div class="eyebrow">Level 01 · The first clue</div>
-        <h2>Three little mysteries.</h2>
-        <p class="lead">One holds the key forward. The other two are… distractions. Choose carefully.</p>
-        <div class="choices">
-          <button class="choice" onclick="chooseBox(0)"><span class="symbol">☾</span><strong>The Moon</strong><small>Quiet, but observant</small></button>
-          <button class="choice" onclick="chooseBox(1)"><span class="symbol">✦</span><strong>The Star</strong><small>Bright, but elusive</small></button>
-          <button class="choice" onclick="chooseBox(2)"><span class="symbol">❀</span><strong>The Bloom</strong><small>Pretty, with a secret</small></button>
-        </div>
-        <div class="feedback" id="boxFeedback" aria-live="polite"></div>
-      </div>
-    </section>
+<main class="page">
 
-    <section class="screen hidden" id="riddle">
-      <div class="panel narrow center">
-        <div class="stepdots"><i class="on"></i><i class="on"></i><i></i><i></i></div>
-        <div class="eyebrow">Level 02 · Think sideways</div>
-        <h2>The quiet code</h2>
-        <p class="riddle">I have keys but no locks. I have space but no room. You can enter, but you cannot go inside. What am I?</p>
-        <div class="answer-grid">
-          <button class="answer" onclick="answerRiddle(this,false)">A map</button>
-          <button class="answer" onclick="answerRiddle(this,true)">A keyboard</button>
-          <button class="answer" onclick="answerRiddle(this,false)">A library</button>
-          <button class="answer" onclick="answerRiddle(this,false)">A piano</button>
-        </div>
-        <div class="feedback" id="riddleFeedback" aria-live="polite">A clue: think about the words “space” and “enter”.</div>
-      </div>
-    </section>
+  <section class="screen" id="welcome">
+    <div class="overline">COLLECTION-OF-MY-THOUGHTS</div>
+    <div class="seal">MY<span style="font-size:18px">♡</span>LOVE</div>
+    <h1 class="hero-title">The ART<br><span>of You.</span></h1>
+    <div class="ornament">— ✧ —</div>
+    <p class="hero-copy">
+      There are people who make life more interesting simply
+      by being part of it. This is a little collection of words,
+      observations and feelings dedicated to one of them.
+      Take your time to read this and have a sneak peek into my how i feel.
+    </p>
+    <button class="primary" id="startButton">LETS BEGIN</button>
+    <div class="hero-foot">MY APPRECIATION OF YOU | MY HEART IN MANY LITTLE PARTS | WHEN IT COMES TO YOU</div>
+  </section>
 
-    <section class="screen hidden" id="sequence">
-      <div class="panel narrow center">
-        <div class="stepdots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-        <div class="eyebrow">Level 03 · Memory test</div>
-        <h2>Watch the stars.</h2>
-        <p class="lead">A sequence will light up. Repeat it in the same order. You get three tries — no pressure. (Okay, a little pressure.)</p>
-        <div class="tiles" id="sequenceTiles">
-          <div class="tile">☾</div><div class="tile">✦</div><div class="tile">❀</div><div class="tile">◇</div>
-        </div>
-        <div class="actions"><button class="btn secondary" id="watchBtn" onclick="playSequence()">Show me again</button></div>
-        <div class="feedback" id="sequenceFeedback" aria-live="polite">Press “Show me again” to watch the pattern, then tap the symbols in order.</div>
-        <div class="actions" id="sequenceControls"></div>
-      </div>
-    </section>
+  <section class="screen hidden" id="collection">
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="progress-label" id="progressLabel">COLLECTION 01 / 09</div>
 
-    <section class="screen hidden" id="doors">
-      <div class="panel narrow center">
-        <div class="stepdots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
-        <div class="eyebrow">Level 04 · Your choice</div>
-        <h2>Pick your ending door.</h2>
-        <p class="lead">You've made it this far. Each door has a different little reveal. Choose the one that calls to you.</p>
-        <div class="door-grid">
-          <button class="door" onclick="openDoor(0)"><span class="symbol">🌙</span><strong>After Hours</strong><p class="tiny">A little mischief</p></button>
-          <button class="door" onclick="openDoor(1)"><span class="symbol">🗝️</span><strong>The Secret</strong><p class="tiny">Something personal</p></button>
-          <button class="door" onclick="openDoor(2)"><span class="symbol">✨</span><strong>One More Thing</strong><p class="tiny">A surprise twist</p></button>
-        </div>
-        <div class="feedback" id="doorFeedback"></div>
-      </div>
-    </section>
+    <div class="card-shell">
+      <article class="card" id="card">
+        <div class="card-number" id="number">No. 01</div>
+        <div class="card-icon" id="icon">✧</div>
+        <div class="card-label" id="label">A FIRST OBSERVATION</div>
+        <h2 id="heading">A rare kind of wonderful.</h2>
+        <p id="bodyText">Some people are difficult to describe, not because there is nothing to say, but because there is so much.</p>
+        <div class="script" id="scriptText">You are one of them.</div>
 
-    <section class="screen hidden" id="final">
-      <div class="narrow">
-        <div class="eyebrow center">You found the final unlock</div>
-        <div class="note">
-          <div style="font-size:28px;margin-bottom:18px">✧ &nbsp; ♡ &nbsp; ✧</div>
-          <h2 id="finalHeading">A little note for you.</h2>
-          <p id="personalMessage"></p>
-          <div class="signature" id="signature">— Someone who thinks you're special</div>
-        </div>
-        <div class="actions"><button class="btn" onclick="replay()">Play again ↻</button><button class="btn secondary" onclick="shareGame()">Share this game</button></div>
-        <p class="tiny center" style="margin-top:18px">You made it all the way through. That was the real prize. ✨</p>
-      </div>
-    </section>
-  </main>
-  <footer>MADE WITH A LITTLE MYSTERY · JUST FOR YOU</footer>
-</div>
-<div class="toast" id="toast" role="status"></div>
+        <button class="reveal-button" id="revealButton" type="button">
+          REVEAL THE NEXT SECRET
+        </button>
+
+        <div class="hidden-thought hidden" id="hiddenThought"></div>
+      </article>
+    </div>
+
+    <div class="navigation">
+      <button class="next" id="nextButton" type="button">
+        CONTINUE TO THE NEXT PAGE
+      </button>
+      <div class="small-note">TAKE YOUR TIME AS YOU BROWSE THROUGH</div>
+    </div>
+  </section>
+
+  <section class="screen hidden" id="ending">
+    <div class="overline">The final page · written from the heart</div>
+    <div class="final-paper">
+      <div class="paper-heading">A PERSONAL LETTER · JUST FOR YOU</div>
+      <h2>MY LOVE | <em>MY BABY</em></h2>
+      <div class="letter-text" id="letterText"></div>
+      <div class="letter-signature">With an affection that words will never quite contain. ♡</div>
+    </div>
+    <div class="closing">Some things are better felt than explained.</div>
+    <div class="final-actions">
+      <button class="primary" id="replayButton">Return to the beginning</button>
+    </div>
+    <div class="hero-foot">END OF THE COLLECTION · NOT THE APPRECIATION</div>
+  </section>
+
+</main>
+
 <script>
-// PERSONALISE THESE TWO LINES BEFORE SENDING HER THE GAME.
-const PERSONAL_MESSAGE = "I wanted to make you something a little different — a tiny adventure with you as the main character. I hope it made you smile. The truth is, even with all these clues and surprises, my favourite part is still getting to know you, making memories with you, and finding new reasons to choose you. This is just a small reminder that you are special to me.";
-const SIGN_OFF = "— From me, with a smile";
+"use strict";
 
-// Game settings and state.
-const screens = ["start","boxes","riddle","sequence","doors","final"];
-let current = 0, boxTries = 0, sequenceTries = 0, seqInput = [], sequenceReady = false, selectedDoor = 1;
-const pattern = [1,0,3,2,1];
-const $ = id => document.getElementById(id);
-function show(id){screens.forEach(s=>$(s).classList.toggle("hidden",s!==id));current=screens.indexOf(id);$("progressFill").style.width=(current/(screens.length-1)*100)+"%";$("progressLabel").textContent=current===0?"A little mystery awaits":current===5?"Unlocked ✦":`Chapter ${current} of 5`;window.scrollTo({top:0,behavior:"smooth"});}
-function begin(){show("boxes");}
-function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2100);}
-function chooseBox(n){const f=$("boxFeedback");if(n===1){f.textContent="The star was hiding the clue. Nicely spotted. ✦";setTimeout(()=>show("riddle"),950);}else{boxTries++;f.textContent=n===0?"A lovely choice… but the moon is keeping its secrets. Try another.":"The bloom is beautiful, but not the key. One more try?";}}
-function answerRiddle(btn,correct){const f=$("riddleFeedback");if(correct){btn.classList.add("correct");f.textContent="Exactly. A keyboard. You're getting warmer…";document.querySelectorAll(".answer").forEach(b=>b.disabled=true);setTimeout(()=>{show("sequence");playSequence();},1100);}else{btn.classList.add("wrong");f.textContent="Not quite. Read the clues literally — keys, space, enter.";setTimeout(()=>btn.classList.remove("wrong"),600);}}
-function playSequence(){sequenceReady=false;seqInput=[];$("sequenceControls").innerHTML="";$("sequenceFeedback").textContent="Watch carefully…";const tiles=[...$("sequenceTiles").children];tiles.forEach(t=>t.classList.remove("active"));let i=0;function flash(){if(i>=pattern.length){sequenceReady=true;$("sequenceFeedback").textContent="Your turn. Tap the symbols in the same order.";return;}const t=tiles[pattern[i]];t.classList.add("active");setTimeout(()=>{t.classList.remove("active");i++;setTimeout(flash,240);},520);}setTimeout(flash,500);}
-$("sequenceTiles").addEventListener("click",e=>{const tile=e.target.closest(".tile");if(!tile||!sequenceReady)return;const idx=[...tile.parentElement.children].indexOf(tile);seqInput.push(idx);tile.classList.add("active");setTimeout(()=>tile.classList.remove("active"),180);const pos=seqInput.length-1;if(idx!==pattern[pos]){sequenceTries++;sequenceReady=false;seqInput=[];$("sequenceFeedback").textContent=sequenceTries>=3?"That one got away. Here's a little mercy: the sequence is Moon, Star, Diamond, Bloom, Star. Try once more.":"Almost! The order slipped. Watch it again and give it another go.";if(sequenceTries>=3){sequenceTries=0;}return;}if(seqInput.length===pattern.length){sequenceReady=false;$("sequenceFeedback").textContent="Perfect sequence. You have a good memory. ✨";setTimeout(()=>show("doors"),1000);}});
-function openDoor(n){selectedDoor=n;const messages=["You chose After Hours. Bold choice. I like that about you.","You chose The Secret. Some things are better said directly…","You chose One More Thing. You do have a talent for finding the unexpected."];$("doorFeedback").textContent=messages[n];setTimeout(()=>{const headings=["A little mischief…","The secret is…","One more thing…"];$("finalHeading").textContent=headings[n];$("personalMessage").textContent=PERSONAL_MESSAGE;$("signature").textContent=SIGN_OFF;show("final");},1000);}
-function replay(){boxTries=0;sequenceTries=0;seqInput=[];document.querySelectorAll(".answer").forEach(b=>{b.disabled=false;b.classList.remove("correct","wrong")});$("boxFeedback").textContent="";$("riddleFeedback").textContent="A clue: think about the words “space” and “enter”.";show("start");}
-async function shareGame(){if(navigator.share){try{await navigator.share({title:"The Unlock",text:"I made a little mystery game for you. Open it when you have a moment."});}catch(e){}}else if(navigator.clipboard){try{await navigator.clipboard.writeText(location.href);toast("Link copied — send it to her!");}catch(e){toast("Copy the page link from your browser.");}}else toast("Copy the page link from your browser.");}
-show("start");
+const PERSONAL_MESSAGE = `❤️ MY BABY ❤️,
+
+I have come to suspect that the human vocabulary was never designed to accommodate certain feelings. We have thousands of words for describing the world around us, yet somehow very few for explaining what happens when one particular person becomes the subject of your happiest thoughts.
+
+You, for instance, have an effect on me that I find rather fascinating.
+
+Whenever I see you, my attention seems to develop a mind of its own. It gravitates towards you, almost instinctively. I become acutely aware of the moment: your face, your expressions, the subtleties of your smile. There is an inexplicable buoyancy in my mood, as though something inside me has quietly been rearranged. I could be having the most unremarkable day, yet one glimpse of you has a way of making it feel considerably less ordinary. And sometimes, even after you've left, I find myself replaying that little encounter in my head, reluctant to let it become just another passing moment.
+
+I am fascinated by the particulars of you. The things that might escape your own notice: the nuances in your voice, the mannerisms that belong exclusively to you, the expressions that appear without invitation. I find beauty in these unscripted details. They make you wonderfully individual, impossible to reduce to a collection of compliments or describe adequately in a handful of sentences.
+
+There is also something rather extraordinary about the anticipation of seeing you. That quiet excitement beforehand, the curiosity of wondering how the next conversation will unfold, the satisfaction of simply occupying the same space as you. I don't always need an elaborate occasion or some grand adventure. Sometimes, the prospect of seeing your face is quite enough to give an otherwise uneventful day something to look forward to.
+
+And perhaps that is what I find most compelling, you don't have to orchestrate anything. You need not manufacture a moment, search for the perfect words, or make an effort to be fascinating. You can simply exist, entirely and unapologetically as yourself, and somehow that is more than enough to hold my attention.
+
+I often wonder how many beautiful encounters the universe arranges without announcing them. Among billions of lives, countless journeys and innumerable possibilities, ours happened to cross. It is a curious little improbability, one I find myself appreciating more than I can properly convey.
+
+So, should you ever question what you mean to me, I hope you remember this: somewhere in the ordinary machinery of my days, you have become an exceptionally lovely interruption. Someone whose appearance can alter my disposition, whose absence can leave a conversation unfinished in my thoughts, and whose smallest gestures can become memories I revisit with an inexplicable fondness.
+
+I hope you continue discovering reasons to admire yourself, because there are qualities in you that deserve to be recognised, celebrated and never taken for granted.
+
+And if I could revisit any moment, I would gladly return to the very first time I saw you, knowing absolutely nothing of what was to follow, yet somehow being just as captivated.
+
+You are not merely someone I enjoy seeing. You are someone whose presence has become an experience in its own right.
+`;
+
+const SIGN_OFF = "— From ME";
+
+const cards = [
+  {
+    icon:"✧",
+    label:"A FIRST OBSERVATION",
+    title:"A rare kind of wonderful ❤️.",
+    body:"Some people are difficult to describe, not because there is nothing to say, but because there is so much. The little things that make them who they are cannot always be gathered into a single sentence.",
+    script:"You are one of them.",
+    hidden:"You don't have to do anything extraordinary to be someone worth appreciating."
+  },
+  {
+    icon:"❖",
+    label:"THE LITTLE DICTIONARY",
+    title:"You, in a definition.",
+    body:"Noun | A collection of qualities, quirks, expressions, thoughts and little details that somehow combine into someone entirely irreplaceable.",
+    script:" Unforgettable | Remarkable | You.",
+    hidden:"There is no second edition. No replacement. No duplicate. Just unique"
+  },
+  {
+    icon:"☼",
+    label:"AN IMPORTANT DETAIL",
+    title:"Your presence has a way of staying.",
+    body:"Some moments end, but the feeling they leave behind doesn't. A conversation, a laugh, a passing thought — sometimes the smallest things become the ones you remember.",
+    script:"You leave beautiful little echoes.",
+    hidden:"And those echoes are worth more to me than you realise."
+  },
+  {
+    icon:"∞",
+    label:"A MATHEMATICAL IMPOSSIBILITY",
+    title:"An appreciation problem.",
+    body:"Suppose I attempted to count every little thing that makes you special. Add your kindness, your humour, your personality, your individuality,you understanding, your love and all the things I have yet to discover.",
+    script:"The answer would still be incomplete.",
+    hidden:"Some equations are not meant to be solved. Some appreciations are not meant to be finished. Some people are meant to be adored beyond time itself"
+  },
+  {
+    icon:"✦",
+    label:"THE ART OF BEING YOU ❤️",
+    title:"There is beauty in your details | Especially the little things",
+    body:"Not just the obvious things. The expressions you make. The way you react to something unexpected. The little habits you might not even notice. The things that make you unmistakably yourself.",
+    script:"Your details are the masterpiece | Things i appreciate and value",
+    hidden:"I hope you never underestimate the beauty of simply being yourself."
+  },
+  {
+    icon:"◇",
+    label:"A THOUGHT ABOUT TIME",
+    title:"No need to be extraordinary every day, effortlessly breathtaking ",
+    body:"You don't need to have everything figured out. You don't need to be cheerful every moment. You don't need to perform perfection. You are allowed to be human, complicated, tired, silly and wonderfully real.",
+    script:"You deserve appreciation always.",
+    hidden:"Especially on the days when you might need the reminder most I promise to be there to listen to you, hug you, hold you, be embraced in your wonderful light."
+  },
+  {
+    icon:"☾",
+    label:"A LITTLE WORDPLAY",
+    title:"If you were a constellation…",
+    body:"You would be the kind astronomers couldn't quite name. Not because you were impossible to find, but because every time they thought they had mapped you, another beautiful detail would appear.",
+    script:"A universe, not a single star.",
+    hidden:"And I would happily keep discovering the little lights. Man on a mission, onward to keep lit that spark"
+  },
+  {
+    icon:"♡",
+    label:"A SMALL PROMISE",
+    title:"Never forget that you are truly loved.",
+    body:"This isn't an appreciation of an imaginary person. It's a celebration of you — with your strengths, your imperfections, your uncertainties and everything in between.",
+    script:"You are worthy of of everything good life has planned for you",
+    hidden:"You never need to earn the right to be valued."
+  },
+  {
+    icon:"✧",
+    label:"BEFORE WE COME TO AN END",
+    title:"One thing I hope you remember.",
+    body:"Pause for a moment and see yourself through a kinder lens. Not as an afterthought. Not as just another person. But as someone who has touched another soul in ways words could never explain ❤️.",
+    script:"This entire collection begins and ends with you.",
+    hidden:"And if these words made you smile even once, then this little creation has done its job."
+  }
+];
+
+const welcome = document.getElementById("welcome");
+const collection = document.getElementById("collection");
+const ending = document.getElementById("ending");
+
+const progressBar = document.getElementById("progressBar");
+const progressLabel = document.getElementById("progressLabel");
+
+const number = document.getElementById("number");
+const icon = document.getElementById("icon");
+const label = document.getElementById("label");
+const heading = document.getElementById("heading");
+const bodyText = document.getElementById("bodyText");
+const scriptText = document.getElementById("scriptText");
+const hiddenThought = document.getElementById("hiddenThought");
+const revealButton = document.getElementById("revealButton");
+const nextButton = document.getElementById("nextButton");
+const card = document.getElementById("card");
+
+let currentIndex = 0;
+let revealed = false;
+
+function showScreen(screen) {
+  welcome.classList.add("hidden");
+  collection.classList.add("hidden");
+  ending.classList.add("hidden");
+  screen.classList.remove("hidden");
+}
+
+function renderCard() {
+  const item = cards[currentIndex];
+  revealed = false;
+
+  number.textContent = "No. " + String(currentIndex + 1).padStart(2,"0");
+  icon.textContent = item.icon;
+  label.textContent = item.label;
+  heading.textContent = item.title;
+  bodyText.textContent = item.body;
+  scriptText.textContent = item.script;
+
+  hiddenThought.textContent = item.hidden;
+  hiddenThought.classList.add("hidden");
+
+  revealButton.classList.remove("revealed");
+  revealButton.classList.remove("hidden");
+  revealButton.disabled = false;
+  revealButton.textContent = "REVEAL SECRET";
+
+  progressLabel.textContent =
+    "COLLECTION " + String(currentIndex + 1).padStart(2,"0") +
+    " / " + String(cards.length).padStart(2,"0");
+
+  progressBar.style.width = ((currentIndex + 1) / cards.length * 100) + "%";
+
+  nextButton.textContent = currentIndex === cards.length - 1
+    ? "OPEN YOUR FINAL LETTER"
+    : "CONTINUE TO THE NEXT PAGE";
+
+  card.style.animation = "none";
+  void card.offsetWidth;
+  card.style.animation = "cardEnter .7s cubic-bezier(.2,.8,.2,1) both";
+}
+
+function createStars() {
+  const area = document.getElementById("stars");
+  for (let i = 0; i < 65; i++) {
+    const star = document.createElement("span");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 4 + "s";
+    star.style.animationDuration = (2 + Math.random() * 4) + "s";
+    area.appendChild(star);
+  }
+}
+
+function floatingSymbols() {
+  const symbols = ["✧","♡","✦","·","❖"];
+  for (let i = 0; i < 22; i++) {
+    const element = document.createElement("span");
+    element.className = "float";
+    element.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    element.style.left = Math.random() * 100 + "vw";
+    element.style.animationDelay = Math.random() * 2 + "s";
+    element.style.fontSize = (12 + Math.random() * 15) + "px";
+    document.body.appendChild(element);
+    setTimeout(() => element.remove(), 6000);
+  }
+}
+
+document.getElementById("startButton").addEventListener("click", () => {
+  currentIndex = 0;
+  showScreen(collection);
+  renderCard();
+  floatingSymbols();
+});
+
+revealButton.addEventListener("click", () => {
+  if (revealed) return;
+
+  revealed = true;
+  hiddenThought.classList.remove("hidden");
+
+  revealButton.classList.add("revealed");
+  revealButton.textContent = "SECRET REVEALED";
+  revealButton.disabled = true;
+
+  floatingSymbols();
+});
+
+nextButton.addEventListener("click", () => {
+  if (currentIndex < cards.length - 1) {
+    currentIndex++;
+    renderCard();
+  } else {
+    document.getElementById("letterText").textContent =
+      PERSONAL_MESSAGE + "\n\n" + SIGN_OFF;
+    showScreen(ending);
+    floatingSymbols();
+  }
+});
+
+document.getElementById("replayButton").addEventListener("click", () => {
+  currentIndex = 0;
+  showScreen(welcome);
+  floatingSymbols();
+});
+
+createStars();
 </script>
 </body>
 </html>
